@@ -237,6 +237,54 @@ html.felt.light body::after{background:radial-gradient(ellipse 85% 75% at 50% 45
 html.felt.light td.var{background:rgba(255,255,255,.7)}
 html.felt.light :is(.btn,.th,.tot,.vbox){background:rgba(255,255,255,.28)}
 html.felt.light .cellbtn{background:rgba(255,255,255,.18)}
+/* ---------- Modus & Schieber ---------- */
+.modeSeg{margin:0 0 12px}
+.newround{width:100%;padding:14px;font-size:16px;margin-bottom:12px}
+.rnd{display:grid;grid-template-columns:34px 58px 1fr 1fr;gap:6px;align-items:center;margin-bottom:6px;cursor:pointer}
+.rnd.hd2{cursor:default;font:600 11px Inter;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;text-align:center;margin-bottom:4px}
+.rnd .no{color:var(--muted);font:600 13px Inter;text-align:center}
+.rnd .tr{height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box)}
+.rnd .tr .sym.only{font-size:22px}.rnd .tr .sym.svgs svg{width:22px;height:22px}
+.rnd .tr .tn2{font:600 11px Inter}
+.rnd .tr .m{font:700 10px Inter;color:var(--gold)}
+.rnd .pt{height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box);border:1px solid transparent}
+.rnd .pt b{font:700 18px Inter}
+.rnd .pt small{font:500 11px Inter;color:var(--muted)}
+.rnd .pt.best{border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
+.rnd .pt.best b{color:var(--gold)}
+.rnd.winrow .pt{box-shadow:0 0 0 2px var(--gold) inset}
+.empty-r{color:var(--muted);text-align:center;padding:30px 10px;font-size:14px}
+.trumps{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.trumps button{display:flex;align-items:center;justify-content:center;gap:6px;height:48px;border-radius:12px;border:1px solid var(--line);background:var(--box);color:var(--chalk);font:600 13px Inter;cursor:pointer}
+.trumps button.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+.trumps button .sym.only{font-size:22px}.trumps button .sym.svgs svg{width:22px;height:22px}
+.trumps button em{font-style:normal;font:700 11px Inter;color:var(--gold)}
+.rpts{display:grid;grid-template-columns:1fr 96px;gap:8px}
+.rpts input{-moz-appearance:textfield}
+.rpts input::-webkit-inner-spin-button,.two input::-webkit-inner-spin-button{-webkit-appearance:none}
+.btn.tog.on,#rMatch.on{background:var(--gold);color:var(--onGold);border-color:transparent}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.two label{display:flex;flex-direction:column;gap:4px;font:600 12px Inter;color:var(--muted)}
+.two label span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.two input{font:600 18px Inter!important;padding:10px!important}
+.two .btn{padding:12px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rsum{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0 12px}
+.rsum div{background:var(--box);border-radius:12px;padding:8px;text-align:center}
+.rsum small{display:block;color:var(--muted);font:600 11px Inter;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rsum b{font:800 24px Fraunces,serif}
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px}
+.mgrid label{display:grid;grid-template-columns:28px 1fr 60px;align-items:center;gap:6px;font:600 13px Inter}
+.mgrid .sym.only{font-size:20px}.mgrid .sym.svgs svg{width:20px;height:20px}
+.mgrid input{font:600 15px Inter!important;padding:8px!important;text-align:center}
+.tgl{display:flex;gap:10px;align-items:center;margin:12px 0 4px;font-size:14px}
+.tgl input{width:20px;height:20px}
+.pbar{height:5px;border-radius:3px;background:var(--box);margin-top:6px;overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--gold);border-radius:3px}
+@media (min-width:700px){.rnd{grid-template-columns:44px 80px 1fr 1fr}.rnd .pt,.rnd .tr{height:60px}.rnd .pt b{font-size:22px}}
+html[data-theme=tafel] :is(.rnd .pt,.rnd .tr,.trumps button){background:transparent!important;border:1.6px solid rgba(239,239,232,.5)!important;filter:url(#chalk)}
+html[data-theme=tafel] .rnd .pt.best{border-color:var(--gold)!important}
+html[data-theme=tafel] .rnd .pt b{font-family:Kalam,cursive}
+html.felt.light :is(.rnd .tr){background:rgba(255,255,255,.7)}
 /* Einheitliche Zeilenhöhe */
 td.c,td.val,td.var{vertical-align:middle;padding:3px}
 td.var{padding:3px 2px}
@@ -252,7 +300,7 @@ td.var{padding:3px 2px}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="chalk" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4" xChannelSelector="R" yChannelSelector="G" result="d"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -1.3 1.5" result="m"/><feComposite in="d" in2="m" operator="in"/></filter></svg>
 <div class="seam"></div>
 <header>
-  <h1>Coiffeur<small id="progress">Tafel</small></h1>
+  <h1><span id="title">Coiffeur</span><small id="progress">Tafel</small></h1>
   <div class="icons">
     <button class="btn" id="undoBtn" title="Rückgängig">↶</button>
     <button class="btn" id="redoBtn" title="Wiederholen">↷</button>
@@ -260,8 +308,13 @@ td.var{padding:3px 2px}
   </div>
 </header>
 
+<div class="seg modeSeg" id="modeSeg"><button data-mode="coiffeur">Coiffeur</button><button data-mode="schieber">Schieber</button></div>
 <div class="win" id="win"></div>
-<div class="wrap"><table id="grid"></table></div>
+<div class="wrap" id="coifView"><table id="grid"></table></div>
+<div id="schView" style="display:none">
+  <button class="btn gold newround" id="newRound">＋ Runde eintragen</button>
+  <div id="rounds"></div>
+</div>
 
 <div class="bar"><div class="totals" id="totals"></div></div>
 
@@ -309,11 +362,34 @@ td.var{padding:3px 2px}
   </div>
 </div>
 
+<!-- Schieber-Runde -->
+<div class="scrim" id="rSheet">
+  <div class="sheet">
+    <h2 id="rTitle">Runde</h2>
+    <label class="f">Trumpf</label>
+    <div class="trumps" id="rTrump"></div>
+    <label class="f">Stichpunkte eintragen für</label>
+    <div class="seg" id="rTeam"><button data-i="0"></button><button data-i="1"></button></div>
+    <div class="rpts"><input type="number" id="rPts" inputmode="numeric" min="0" max="157" placeholder="Punkte"><button class="btn" id="rMatch">Match</button></div>
+    <p class="hint" id="rOther" style="margin:8px 2px 0"></p>
+    <label class="f">Weis</label>
+    <div class="two"><label><span id="rWn0"></span><input type="number" id="rW0" inputmode="numeric" min="0" placeholder="0"></label><label><span id="rWn1"></span><input type="number" id="rW1" inputmode="numeric" min="0" placeholder="0"></label></div>
+    <label class="f">Stöck (20)</label>
+    <div class="two"><button class="btn tog" id="rS0"></button><button class="btn tog" id="rS1"></button></div>
+    <div class="rsum" id="rSum"></div>
+    <div class="row">
+      <button class="btn danger" id="rDel">Löschen</button>
+      <button class="btn ghost" id="rCancel">Abbrechen</button>
+      <button class="btn gold" id="rSave">Speichern</button>
+    </div>
+  </div>
+</div>
+
 <!-- Einstellungen -->
 <div class="scrim" id="settings">
   <div class="sheet">
     <h2>Einstellungen</h2>
-    <p class="hint">Änderungen gelten sofort. Reihenfolge der Jassarten: am Griff ⋮⋮ ziehen – der Multiplikator passt sich an.</p>
+    <p class="hint" id="sHint">Änderungen gelten sofort.</p>
     <label class="f">Teams (je zwei Spieler)</label>
     <div id="sTeams"></div>
     <label class="f">Farbdesign</label>
@@ -332,11 +408,20 @@ td.var{padding:3px 2px}
     </div>
     <label class="f">Kartenbezeichnung</label>
     <div class="seg" id="sCards"><button data-c="fr">Herz · Ecke · Kreuz · Schaufel</button><button data-c="de">Rose · Schelle · Eichel · Schilte</button></div>
+    <div id="sCoif">
     <label class="f">Jassarten </label>
     <div id="sVars"></div>
     <div class="row" style="margin:6px 0 4px">
       <button class="btn" id="sAdd">+ Jassart</button>
       <button class="btn" id="sP10">Standard wiederherstellen</button>
+    </div>
+    </div>
+    <div id="sSch">
+    <label class="f">Zielpunkte</label>
+    <input type="number" id="sTarget" inputmode="numeric" min="100" step="100">
+    <label class="f">Trumpf-Multiplikator</label>
+    <div class="mgrid" id="sMult"></div>
+    <label class="tgl"><input type="checkbox" id="sMultWS"> Weis und Stöck auch multiplizieren</label>
     </div>
     <label class="f">Spiel</label>
     <div class="row">
@@ -361,6 +446,8 @@ try{S=JSON.parse(localStorage.getItem(LS))}catch(e){}
 if(!S||!Array.isArray(S.teams)||!Array.isArray(S.vars))S=DEFAULT();
 if(!S.misV2){S.vars.forEach(v=>{if(!v.inv)return;S.teams.forEach(t=>{const k=v.id+":"+t.id,r=S.scores[k];if(r!=null&&r<=157)S.scores[k]=157-r})});S.misV2=1;S.history=[];S.future=[]}
 Object.keys(S.scores).forEach(k=>{if(S.scores[k]>157)S.scores[k]=157});
+S.mode=S.mode||"coiffeur";
+S.sch=Object.assign({target:2500,mult:[1,1,2,2,3,3],multWS:true,rounds:[],hist:[],fut:[]},S.sch||{});
 function renumber(){S.vars.forEach((v,i)=>v.mult=i+1)}
 renumber();
 function save(){try{localStorage.setItem(LS,JSON.stringify(S))}catch(e){}}
@@ -382,6 +469,13 @@ const SYM={Herz:["♥︎","red"],Ecke:["♦︎","red"],Kreuz:["♣︎","blk"],Sc
 function sym(name){const x=SYM[name];if(!x)return"";
   return x[1]==="svg"?`<span class="sym only svgs" title="${name}">${SVG[x[0]]}</span>`:`<span class="sym only ${x[1]}" title="${name}">${x[0]}</span>`}
 function render(){
+  const sch=S.mode==="schieber";
+  $("title").textContent=sch?"Schieber":"Coiffeur";
+  [...$("modeSeg").children].forEach(b=>b.classList.toggle("on",b.dataset.mode===S.mode));
+  $("coifView").style.display=sch?"none":"";$("schView").style.display=sch?"":"none";
+  if(sch)renderSch();else renderC();
+}
+function renderC(){
   const T=S.teams.slice(0,2), g=$("grid");
   let h=`<colgroup><col style="width:20%"><col style="width:19%"><col style="width:22%"><col style="width:19%"><col style="width:20%"></colgroup>`;
   h+=`<tr><th colspan="2"><div class="th"><span class="tn">${esc(tName(T[0]))}</span></div></th><th class="mid">Jassart</th><th colspan="2"><div class="th"><span class="tn">${esc(tName(T[1]))}</span></div></th></tr>`;
@@ -495,8 +589,8 @@ $("eCancel").onclick=closeEntry;
 function closeEntry(){$("entry").classList.remove("open");cur=null}
 $("entry").addEventListener("click",e=>{if(e.target.id==="entry")closeEntry()});
 function setScore(k,v){if(v==null)delete S.scores[k];else S.scores[k]=v}
-$("undoBtn").onclick=()=>{const h=S.history.pop();if(!h)return;(S.future=S.future||[]).push({k:h.k,prev:S.scores[h.k]??null});setScore(h.k,h.prev);render()};
-$("redoBtn").onclick=()=>{const f=(S.future||[]).pop();if(!f)return;S.history.push({k:f.k,prev:S.scores[f.k]??null});setScore(f.k,f.prev);render()};
+$("undoBtn").onclick=()=>{if(S.mode==="schieber"){schUndo();return}const h=S.history.pop();if(!h)return;(S.future=S.future||[]).push({k:h.k,prev:S.scores[h.k]??null});setScore(h.k,h.prev);render()};
+$("redoBtn").onclick=()=>{if(S.mode==="schieber"){schRedo();return}const f=(S.future||[]).pop();if(!f)return;S.history.push({k:f.k,prev:S.scores[f.k]??null});setScore(f.k,f.prev);render()};
 
 /* ---------- Jassart bearbeiten ---------- */
 let editVar=null,vDelArmed=false;
@@ -548,6 +642,12 @@ function renderSettings(){
   const on=$("sTheme").querySelector(".on");if(on&&!renderSettings.done){renderSettings.done=1;setTimeout(()=>on.scrollIntoView({inline:"center",block:"nearest"}),30)}
   [...$("sCards").children].forEach(b=>b.classList.toggle("on",b.dataset.c===S.cards));
   $("sTeams").innerHTML=S.teams.slice(0,2).map((t,i)=>`<div class="li team2"><input type="text" data-tp="${t.id}" data-k="p1" value="${esc(t.p1||"")}" placeholder="Spieler ${i*2+1}"><span class="plus">+</span><input type="text" data-tp="${t.id}" data-k="p2" value="${esc(t.p2||"")}" placeholder="Spieler ${i*2+2}"></div>`).join("");
+  const sch=S.mode==="schieber";
+  $("sCoif").style.display=sch?"none":"";$("sSch").style.display=sch?"":"none";
+  $("sHint").textContent=sch?"Änderungen gelten sofort. «Neues Spiel» löscht nur die Schieber-Runden.":"Änderungen gelten sofort. Reihenfolge der Jassarten: am Griff ⋮⋮ ziehen – der Multiplikator passt sich an. «Neues Spiel» löscht nur die Coiffeur-Punkte.";
+  $("sTarget").value=S.sch.target;
+  $("sMult").innerHTML=[0,1,2,3,4,5].map(i=>`<label>${trumpIcon(i)}<span>${trumpName(i)}</span><input type="number" inputmode="numeric" min="1" data-mi="${i}" value="${S.sch.mult[i]}"></label>`).join("");
+  $("sMultWS").checked=!!S.sch.multWS;
   $("sVars").innerHTML=S.vars.map(v=>`<div class="li var" data-id="${v.id}"><span class="hd" data-vh="${v.id}" title="Ziehen zum Verschieben">⋮⋮</span><input type="text" data-vn="${v.id}" value="${esc(v.name)}"><span style="text-align:center;font:700 14px Inter;color:var(--gold)">×${v.mult}</span><button class="x ed" data-ve="${v.id}" title="Bearbeiten">✎</button></div>`).join("");
 }
 $("setBtn").onclick=()=>{renderSettings();$("settings").classList.add("open")};
@@ -579,7 +679,121 @@ $("sP10").onclick=()=>applyPreset(10);
 let newArmed=false;
 $("sNew").onclick=()=>{
   if(!newArmed){newArmed=true;$("sNew").textContent="Sicher? Nochmals tippen";setTimeout(()=>{newArmed=false;$("sNew").textContent="Neues Spiel"},3000);return}
-  newArmed=false;$("sNew").textContent="Neues Spiel";S.scores={};S.history=[];S.future=[];closeSettings()};
+  newArmed=false;$("sNew").textContent="Neues Spiel";
+  if(S.mode==="schieber"){schSnap();S.sch.rounds=[]}else{S.scores={};S.history=[];S.future=[]}
+  closeSettings()};
+
+/* ================= Schieber ================= */
+const TR_EXTRA=["Obenabe","Undenufe"];
+function trumpName(i){return i<4?SUITS[S.cards][i]:TR_EXTRA[i-4]}
+function trumpIcon(i){if(i<4)return sym(SUITS[S.cards][i]);return `<span class="sym only" style="font:800 15px Inter">${i===4?"⬇":"⬆"}</span>`}
+function schSnap(){S.sch.hist.push(JSON.stringify(S.sch.rounds));if(S.sch.hist.length>100)S.sch.hist.shift();S.sch.fut=[]}
+function schUndo(){const h=S.sch.hist.pop();if(h==null)return;S.sch.fut.push(JSON.stringify(S.sch.rounds));S.sch.rounds=JSON.parse(h);render()}
+function schRedo(){const f=S.sch.fut.pop();if(f==null)return;S.sch.hist.push(JSON.stringify(S.sch.rounds));S.sch.rounds=JSON.parse(f);render()}
+/* Punkte einer Runde, aufgeteilt in Stöck / Weis / Stich (je Team, bereits multipliziert) */
+function roundParts(r){
+  const m=S.sch.mult[r.t]||1, mw=S.sch.multWS?m:1;
+  const stich=[0,0];
+  if(r.match){stich[r.team]=257;stich[1-r.team]=0}
+  else{stich[r.team]=r.pts;stich[1-r.team]=157-r.pts}
+  return [0,1].map(i=>({stoeck:(r.s[i]?20:0)*mw,weis:(+r.w[i]||0)*mw,stich:stich[i]*m}));
+}
+function roundTotal(r){return roundParts(r).map(p=>p.stoeck+p.weis+p.stich)}
+function schState(){
+  const tot=[0,0];let winner=null,winRound=-1;const T=S.sch.target;
+  S.sch.rounds.forEach((r,idx)=>{
+    const P=roundParts(r);
+    for(const part of ["stoeck","weis","stich"]){
+      for(const i of [0,1]){
+        tot[i]+=P[i][part];
+        if(winner==null&&tot[i]>=T){winner=i;winRound=idx}
+      }
+    }
+  });
+  return{tot,winner,winRound};
+}
+function renderSch(){
+  const T=S.teams.slice(0,2), st=schState(), R=S.sch.rounds;
+  $("progress").textContent=`${R.length} Runde${R.length===1?"":"n"} · Ziel ${fmt(S.sch.target)}`;
+  // Rundenliste (neueste oben), laufende Summen
+  const run=[];let a=0,b=0;R.forEach(r=>{const t=roundTotal(r);a+=t[0];b+=t[1];run.push([a,b])});
+  let h="";
+  if(!R.length)h=`<div class="empty-r">Noch keine Runde. Tippe auf «＋ Runde eintragen».</div>`;
+  else{
+    h+=`<div class="rnd hd2"><span>Nr</span><span>Trumpf</span><span>${esc(tName(T[0]))}</span><span>${esc(tName(T[1]))}</span></div>`;
+    for(let i=R.length-1;i>=0;i--){
+      const r=R[i],t=roundTotal(r),m=S.sch.mult[r.t];
+      const ex=(j)=>{const x=[];if(+r.w[j])x.push("W");if(r.s[j])x.push("St");return x.length?" · "+x.join("+"):""};
+      h+=`<div class="rnd${i===st.winRound?" winrow":""}" data-r="${i}"><span class="no">${i+1}</span>
+        <div class="tr">${r.t<4?trumpIcon(r.t):`<span class="tn2">${trumpName(r.t)}</span>`}<span class="m">×${m}</span></div>
+        <div class="pt${t[0]>t[1]?" best":""}"><b>${fmt(t[0])}</b><small>${fmt(run[i][0])}${ex(0)}${r.match&&r.team===0?" · Match":""}</small></div>
+        <div class="pt${t[1]>t[0]?" best":""}"><b>${fmt(t[1])}</b><small>${fmt(run[i][1])}${ex(1)}${r.match&&r.team===1?" · Match":""}</small></div></div>`;
+    }
+  }
+  $("rounds").innerHTML=h;
+  // Summenleiste
+  const diff=st.tot[0]-st.tot[1], tg=S.sch.target;
+  const tot=i=>{const rest=Math.max(0,tg-st.tot[i]);return `<div class="tot${st.winner===i||(st.winner==null&&st.tot[i]>st.tot[1-i])?" lead":""}"><div class="nm">${esc(tName(T[i]))}</div><div class="sum">${fmt(st.tot[i])}</div><div class="sub">${rest?"noch "+fmt(rest):"Ziel erreicht"}</div><div class="pbar"><i style="width:${Math.min(100,st.tot[i]/tg*100)}%"></i></div></div>`};
+  $("totals").innerHTML=tot(0)+`<div class="diff"><div class="nm">Differenz</div><div class="dv">${fmt(Math.abs(diff))}</div><div class="sub">${diff>0?"◀ vorne":diff<0?"vorne ▶":"gleich"}</div></div>`+tot(1);
+  const w=$("win");
+  if(st.winner!=null){w.textContent=`🏆 ${tName(T[st.winner])} erreicht ${fmt(tg)} in Runde ${st.winRound+1}`;w.classList.add("show")}else w.classList.remove("show");
+  $("undoBtn").style.opacity=S.sch.hist.length?1:.4;
+  $("redoBtn").style.opacity=S.sch.fut.length?1:.4;
+  save();
+}
+/* Modus umschalten */
+$("modeSeg").onclick=e=>{const b=e.target.closest("[data-mode]");if(!b||b.dataset.mode===S.mode)return;S.mode=b.dataset.mode;render()};
+/* Runden-Eingabe */
+let rEdit=null,rd=null;
+function openRound(idx){
+  rEdit=idx;const T=S.teams.slice(0,2);
+  const last=S.sch.rounds[S.sch.rounds.length-1];
+  rd=idx!=null?JSON.parse(JSON.stringify(S.sch.rounds[idx])):{t:null,team:last?last.team:0,pts:null,match:false,w:["",""],s:[false,false]};
+  $("rTitle").textContent=idx!=null?`Runde ${idx+1} bearbeiten`:`Runde ${S.sch.rounds.length+1}`;
+  [0,1].forEach(i=>{$("rTeam").children[i].textContent=tName(T[i]);$("rWn"+i).textContent=tName(T[i]);$("rS"+i).textContent="Stöck "+tName(T[i]);$("rW"+i).value=rd.w[i]||""});
+  $("rPts").value=rd.pts??"";
+  $("rDel").style.display=idx!=null?"":"none";$("rDel").textContent="Löschen";rDelArmed=false;
+  rRender();$("rSheet").classList.add("open");
+}
+function rRender(){
+  $("rTrump").innerHTML=[0,1,2,3,4,5].map(i=>`<button data-t="${i}" class="${rd.t===i?"on":""}">${trumpIcon(i)}${i>=4?trumpName(i):""}<em>×${S.sch.mult[i]}</em></button>`).join("");
+  [...$("rTeam").children].forEach((b,i)=>b.classList.toggle("on",rd.team===i));
+  $("rMatch").classList.toggle("on",rd.match);$("rPts").disabled=rd.match;
+  if(rd.match)$("rPts").value="";
+  [0,1].forEach(i=>$("rS"+i).classList.toggle("on",rd.s[i]));
+  const T=S.teams.slice(0,2),o=1-rd.team;
+  $("rOther").textContent=rd.match?`Match: ${tName(T[rd.team])} 257, ${tName(T[o])} 0`:(rd.pts!=null&&rd.pts!==""?`${tName(T[o])}: 157 − ${rd.pts} = ${157-rd.pts}`:`${tName(T[o])} bekommt automatisch 157 minus diese Punkte`);
+  const ok=rd.t!=null&&(rd.match||(rd.pts!=null&&rd.pts!==""));
+  $("rSum").innerHTML=ok?roundTotal(rd).map((v,i)=>`<div><small>${esc(tName(T[i]))}</small><b>+${fmt(v)}</b></div>`).join(""):`<div style="grid-column:1/3"><small>${rd.t==null?"Trumpf wählen":"Punkte eingeben"}</small></div>`;
+  $("rSave").style.opacity=ok?1:.5;
+}
+$("rTrump").onclick=e=>{const b=e.target.closest("[data-t]");if(!b)return;rd.t=+b.dataset.t;rRender()};
+$("rTeam").onclick=e=>{const b=e.target.closest("[data-i]");if(!b)return;rd.team=+b.dataset.i;rRender()};
+$("rMatch").onclick=()=>{rd.match=!rd.match;rRender();if(!rd.match)$("rPts").focus()};
+$("rPts").addEventListener("input",e=>{const v=e.target.value;rd.pts=v===""?null:Math.max(0,Math.min(157,Math.round(+v)));rRender()});
+$("rPts").addEventListener("change",e=>{if(rd.pts!=null)e.target.value=rd.pts});
+[0,1].forEach(i=>{
+  $("rW"+i).addEventListener("input",e=>{rd.w[i]=Math.max(0,Math.round(+e.target.value||0))||"";rRender()});
+  $("rS"+i).onclick=()=>{rd.s[i]=!rd.s[i];if(rd.s[i])rd.s[1-i]=false;rRender()};
+});
+$("rSave").onclick=()=>{
+  if(rd.t==null||!(rd.match||(rd.pts!=null&&rd.pts!=="")))return;
+  rd.w=rd.w.map(x=>+x||0);
+  schSnap();
+  if(rEdit!=null)S.sch.rounds[rEdit]=rd;else S.sch.rounds.push(rd);
+  $("rSheet").classList.remove("open");render();
+};
+let rDelArmed=false;
+$("rDel").onclick=()=>{if(!rDelArmed){rDelArmed=true;$("rDel").textContent="Sicher?";return}
+  schSnap();S.sch.rounds.splice(rEdit,1);$("rSheet").classList.remove("open");render()};
+$("rCancel").onclick=()=>$("rSheet").classList.remove("open");
+$("rSheet").addEventListener("click",e=>{if(e.target.id==="rSheet")$("rSheet").classList.remove("open")});
+$("newRound").onclick=()=>openRound(null);
+$("rounds").addEventListener("click",e=>{const r=e.target.closest("[data-r]");if(r)openRound(+r.dataset.r)});
+/* Schieber-Einstellungen */
+$("sTarget").addEventListener("change",e=>{S.sch.target=Math.max(100,Math.round(+e.target.value||2500));e.target.value=S.sch.target;render()});
+$("sMult").addEventListener("input",e=>{const i=e.target.dataset.mi;if(i==null)return;S.sch.mult[i]=Math.max(1,Math.round(+e.target.value||1));render()});
+$("sMultWS").onchange=e=>{S.sch.multWS=e.target.checked;render()};
 
 applyTheme();render();
 </script>
