@@ -30,9 +30,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;op
 html[data-theme=filz] body::before,html[data-theme=filzhell] body::before,html[data-theme=steppichrot] body::before,html[data-theme=steppichblau] body::before{opacity:.10}
 html{background:var(--bg) fixed;min-height:100%}
 html,body{margin:0;color:var(--chalk);font-family:Inter,system-ui,sans-serif;min-height:100%}
-body{padding:14px 12px 190px;max-width:900px;margin:0 auto}
-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
-h1{font-family:Fraunces,serif;font-weight:800;font-size:26px;margin:0}
+body{padding:10px 12px calc(92px + env(safe-area-inset-bottom));max-width:900px;margin:0 auto}
+header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
+h1{font-family:Fraunces,serif;font-weight:800;font-size:26px;line-height:1.15;margin:0}
 h1 small{display:block;font:500 12px Inter;color:var(--muted)}
 .btn{border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--chalk);border-radius:12px;padding:9px 12px;font:600 14px Inter;cursor:pointer}
 .btn:active{transform:scale(.97)}
@@ -73,12 +73,12 @@ tr.drop-above td{box-shadow:0 -3px 0 var(--gold)}
 tr.drop-below td{box-shadow:0 3px 0 var(--gold)}
 .ghostEl{position:fixed;pointer-events:none;z-index:50;background:var(--gold);color:var(--onGold);font:700 14px Inter;padding:8px 12px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4);transform:translate(-50%,-120%)}
 
-.bar{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--barbg) 96%,transparent) 25%);padding:18px 12px calc(12px + env(safe-area-inset-bottom))}
+.bar{position:fixed;left:0;right:0;bottom:0;background:linear-gradient(180deg,transparent,color-mix(in srgb,var(--barbg) 96%,transparent) 25%);padding:12px 12px calc(8px + env(safe-area-inset-bottom))}
 .totals{max-width:900px;margin:0 auto;display:flex;gap:8px;overflow-x:auto}
-.tot{flex:1 0 96px;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:14px;padding:8px 10px;text-align:center}
+.tot{flex:1 0 96px;background:rgba(0,0,0,.35);border:1px solid var(--line);border-radius:14px;padding:5px 10px;text-align:center}
 .tot.lead{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
 .tot .nm{font:600 12px Inter;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tot .sum{font:800 24px Fraunces,serif}
+.tot .sum{font:800 24px/1.15 Fraunces,serif}
 .tot .sub{font:500 11px Inter;color:var(--muted)}
 
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:flex-end;justify-content:center;z-index:10}
@@ -124,14 +124,14 @@ label.f{display:block;font:600 12px Inter;color:var(--muted);margin:14px 0 6px;t
 .foot{color:var(--muted);font-size:12px;text-align:center;margin-top:10px}
 
 /* Symmetrisches Layout */
-table{width:100%;table-layout:fixed;border-spacing:0 5px}
+table{width:100%;table-layout:fixed;border-spacing:0 2px}
 th{font:600 11px Inter;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;text-align:center}
 th.mid{vertical-align:bottom;padding-bottom:8px}
 .th{min-width:0;justify-content:center}
 .th .tn{max-width:100%;text-transform:none;letter-spacing:0;color:var(--chalk);white-space:normal;line-height:1.2;font-size:13px;text-align:center}
 tr.subh th{padding:0 2px 2px;font-size:10px}
 td.var{position:static;border-radius:12px;background:rgba(0,0,0,.3);text-align:center;padding:5px 2px}
-.vh{flex-direction:column;justify-content:center;gap:3px}
+.vh{flex-direction:column;justify-content:center;gap:2px}
 .vh .nl{display:flex;align-items:center;gap:4px;max-width:100%}
 td.var .n{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 td.var .m{font-size:11px;padding:1px 6px}
@@ -152,24 +152,22 @@ td.addcell{position:static;padding-top:6px}
 .wrap{overflow:visible;margin:0;padding:0}
 .totals{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:8px;overflow:visible}
 .tot{min-width:0}
-.diff{text-align:center;padding:8px 6px;min-width:84px}
+.diff{text-align:center;padding:5px 6px;min-width:84px}
 .diff .nm{font:600 11px Inter;color:var(--muted)}
-.diff .dv{font:800 20px Fraunces,serif;color:var(--gold)}
+.diff .dv{font:800 20px/1.15 Fraunces,serif;color:var(--gold)}
 .diff .sub{font:500 11px Inter;color:var(--muted)}
 
 /* Tablet */
 @media (min-width:700px){
-  body{max-width:820px;padding:24px 24px 210px}
-  h1{font-size:34px}
+  body{max-width:820px;padding:16px 24px calc(100px + env(safe-area-inset-bottom))}
+  h1{font-size:28px}
   .cellbtn,.vbox{min-height:60px}
   .cellbtn .big{font-size:19px}
   .vbox{font-size:21px}
-  .sym.only{font-size:36px}
-  .sym.svgs svg{width:36px;height:36px}
+  td.var .m{font-size:12px}
   td.var .n{font-size:16px}
-  td.var .m{font-size:13px}
   .th .tn{font-size:16px}
-  .th{padding:10px}
+  .th{padding:6px}
   tr.subh th{font-size:11px}
   .scrim{align-items:center}
   .sheet{max-width:560px;border-radius:20px;border-bottom:1px solid var(--line);max-height:86vh}
@@ -178,8 +176,8 @@ td.addcell{position:static;padding-top:6px}
 }
 /* PC / Tablet quer: Summen als Seitenleiste */
 @media (min-width:1100px){
-  body{max-width:1200px;padding:28px 360px 40px 28px}
-  .bar{left:auto;bottom:auto;top:96px;width:300px;right:max(28px,calc((100vw - 1200px)/2 + 28px));background:none;padding:0}
+  body{max-width:1200px;padding:18px 360px 16px 28px}
+  .bar{left:auto;bottom:auto;top:71px;width:300px;right:max(28px,calc((100vw - 1200px)/2 + 28px));background:none;padding:0}
   .totals{display:flex;flex-direction:column;gap:12px}
   .tot{padding:16px}
   .tot .sum{font-size:38px}
@@ -239,16 +237,17 @@ html.felt.light td.var{background:rgba(255,255,255,.7)}
 html.felt.light :is(.btn,.th,.tot,.vbox){background:rgba(255,255,255,.28)}
 html.felt.light .cellbtn{background:rgba(255,255,255,.18)}
 /* ---------- Modus & Schieber ---------- */
-.modeSeg{margin:0 0 12px}
+.modeSeg{margin:0 0 8px}
+.modeSeg button{padding:6px}
 .newround{width:100%;padding:14px;font-size:16px;margin-bottom:12px}
 .rnd{display:grid;grid-template-columns:34px 58px 1fr 1fr;gap:6px;align-items:center;margin-bottom:6px;cursor:pointer}
 .rnd.hd2{cursor:default;font:600 11px Inter;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;text-align:center;margin-bottom:4px}
 .rnd .no{color:var(--muted);font:600 13px Inter;text-align:center}
-.rnd .tr{height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box)}
+.rnd .tr{height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box)}
 .rnd .tr .sym.only{font-size:22px}.rnd .tr .sym.svgs svg{width:22px;height:22px}
 .rnd .tr .tn2{font:600 11px Inter}
 .rnd .tr .m{font:700 10px Inter;color:var(--gold)}
-.rnd .pt{height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box);border:1px solid transparent}
+.rnd .pt{height:48px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:10px;background:var(--box);border:1px solid transparent}
 .rnd .pt b{font:700 18px Inter}
 .rnd .pt small{font:500 11px Inter;color:var(--muted)}
 .rnd .pt.best{border-color:color-mix(in srgb,var(--gold) 40%,transparent)}
@@ -281,19 +280,23 @@ html.felt.light .cellbtn{background:rgba(255,255,255,.18)}
 .tgl input{width:20px;height:20px}
 .pbar{height:5px;border-radius:3px;background:var(--box);margin-top:6px;overflow:hidden}
 .pbar i{display:block;height:100%;background:var(--gold);border-radius:3px}
-@media (min-width:700px){.rnd{grid-template-columns:44px 80px 1fr 1fr}.rnd .pt,.rnd .tr{height:60px}.rnd .pt b{font-size:22px}}
+@media (min-width:700px){.rnd{grid-template-columns:44px 80px 1fr 1fr}.rnd .pt,.rnd .tr{height:56px}.rnd .pt b{font-size:22px}}
 html[data-theme=tafel] :is(.rnd .pt,.rnd .tr,.trumps button){background:transparent!important;border:1.6px solid rgba(239,239,232,.5)!important;filter:url(#chalk)}
 html[data-theme=tafel] .rnd .pt.best{border-color:var(--gold)!important}
 html[data-theme=tafel] .rnd .pt b{font-family:Kalam,cursive}
 html.felt.light :is(.rnd .tr){background:rgba(255,255,255,.7)}
-/* Einheitliche Zeilenhöhe */
-td.c,td.val,td.var{vertical-align:middle;padding:3px}
-td.var{padding:3px 2px}
-.cellbtn,.vbox,.vh{height:56px;min-height:0!important;box-sizing:border-box;margin:0}
+/* Einheitliche Zeilenhöhe: passt sich der Bildschirmhöhe an, damit alle Jassarten ohne Scrollen sichtbar sind (--fixH und --n setzt fitRows) */
+#grid{--rh:clamp(40px,calc((100svh - var(--fixH,320px)) / var(--n,10)),48px)}
+@media (min-width:700px){#grid{--rh:clamp(42px,calc((100svh - var(--fixH,320px)) / var(--n,10)),56px)}}
+td.c,td.val,td.var{vertical-align:middle;padding:2px 3px}
+td.var{padding:2px}
+.cellbtn,.vbox,.vh{height:var(--rh);min-height:0!important;box-sizing:border-box;margin:0}
+#grid .sym.only{font-size:calc(var(--rh) - 20px)}
+td.var :is(.n,.m){line-height:1.15}
+#grid .sym.svgs svg{width:calc(var(--rh) - 20px);height:calc(var(--rh) - 20px)}
 .vbox{border:1px solid transparent}
 .vbox.win{border-color:color-mix(in srgb,var(--gold) 35%,transparent)}
 .vh{justify-content:center}
-@media (min-width:700px){.cellbtn,.vbox,.vh{height:66px}}
 @media (hover:hover){.cellbtn:hover{border-color:var(--gold)}.btn:hover{border-color:var(--gold)}}
 .cellbtn:not(.done){font-size:20px;font-weight:400}
 @media (min-width:700px){.cellbtn:not(.done){font-size:24px}}
@@ -517,7 +520,20 @@ function renderC(){
   $("undoBtn").style.opacity=S.history.length?1:.4;
   $("redoBtn").style.opacity=(S.future||[]).length?1:.4;
   save();
+  fitRows();
 }
+/* Zeilenhöhe an Bildschirm anpassen: misst den Platz über, zwischen und unter den Zeilen; die Höhe selbst rechnet das CSS (--rh) */
+function fitRows(){
+  const g=$("grid"),rows=g.querySelectorAll("tr[data-row]");
+  if(!rows.length||!g.offsetParent)return;
+  const first=rows[0].getBoundingClientRect(),last=rows[rows.length-1].getBoundingClientRect();
+  const cur=rows[0].querySelector(".vh").offsetHeight;
+  const bar=document.querySelector(".bar"),below=innerWidth>=1100?16:bar.offsetHeight;
+  g.style.setProperty("--fixH",Math.ceil(first.top+scrollY+(last.bottom-first.top-rows.length*cur)+below)+"px");
+  g.style.setProperty("--n",rows.length);
+}
+addEventListener("resize",()=>requestAnimationFrame(fitRows));
+if(document.fonts)document.fonts.ready.then(fitRows);
 
 /* ---------- Reihenfolge in den Einstellungen per Griff ---------- */
 let sd=null,suppressClick=false;
