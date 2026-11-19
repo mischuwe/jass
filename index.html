@@ -219,6 +219,7 @@ html.felt body::after{content:"";position:fixed;inset:0;pointer-events:none;z-in
   border:8px solid transparent;box-sizing:border-box}
 html.felt body > .seam{display:block}
 html.felt body{padding-left:18px;padding-right:18px}
+@media (min-width:1100px){html.felt body{padding-left:28px;padding-right:360px}}
 .seam{display:none;position:fixed;inset:9px;border:2px dashed rgba(255,255,255,.28);border-radius:14px;pointer-events:none;z-index:-1;filter:drop-shadow(0 1px 0 rgba(0,0,0,.35))}
 html[data-theme=steppichschwarz]{--chalk:#f1f1ee;--muted:#a9a9a4;--line:rgba(241,241,238,.16);--gold:#e8c35a;--onGold:#241b00;--sheet:#1c1c1c;
   --bg:radial-gradient(120% 80% at 50% 0%,#3a3a3a 0%,#2a2a2a 50%,#1c1c1c 100%);--barbg:#1c1c1c;--red:#ff7b7b}
@@ -294,6 +295,8 @@ td.var{padding:3px 2px}
 .vh{justify-content:center}
 @media (min-width:700px){.cellbtn,.vbox,.vh{height:66px}}
 @media (hover:hover){.cellbtn:hover{border-color:var(--gold)}.btn:hover{border-color:var(--gold)}}
+.cellbtn:not(.done){font-size:20px;font-weight:400}
+@media (min-width:700px){.cellbtn:not(.done){font-size:24px}}
 </style>
 </head>
 <body>
